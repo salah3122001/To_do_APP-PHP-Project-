@@ -4,7 +4,7 @@
 
 # 📝 Simple To-Do App (PHP Native & OOP)
 
-A simple To-Do List web application built using **PHP with Object-Oriented Programming (OOP)** — without frameworks.
+A simple To-Do List web application built using **PHP Native with Object-Oriented Programming (OOP)** — without frameworks.
 This project was created to practice PHP fundamentals, OOP concepts, and session-based data handling.
 
 ---
@@ -30,7 +30,7 @@ This project was created to practice PHP fundamentals, OOP concepts, and session
 ---
 
 ## 🛠️ Technologies Used
-- **PHP (Pure OOP PHP)**  
+- **PHP (Native OOP PHP)**  
 - **HTML5**  
 - **CSS3**  
 - **Bootstrap 4**
