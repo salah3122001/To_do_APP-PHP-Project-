@@ -62,8 +62,9 @@ http://localhost/todoapp/
 
 ---
 
-## 👨‍💻 Author
-**Mohamed Ashraf**  
-[GitHub Profile](https://github.com/salah3122001)
+## 🧑‍💻 Author
+   **Mohamed Ashraf**
+    📧 Email: mohamed_ashraf4444@hotmail.com
+    🌐 GitHub: https://github.com/salah3122001     
 
 ---
