@@ -86,51 +86,56 @@ $task = new Task;
 
                 // Show tasks
                 if (isset($_POST['show'])) {
+
                     $task->setId($_SESSION['user']->id);
                     $result = $task->read();
-                    $tasks = $result->fetch_all(MYSQLI_ASSOC);
+                    if ($result && $result->num_rows > 0) {
+                        $tasks = $result->fetch_all(MYSQLI_ASSOC);
 
-                    if (!empty($tasks)) { ?>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-bordered text-center">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Task</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($tasks as $taskUser) { ?>
+                        if (!empty($tasks)) { ?>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered text-center">
+                                    <thead class="thead-dark">
                                         <tr>
-                                            <td><?= $_SESSION['user']->name ?></td>
-                                            <td><?= $taskUser['title'] ?></td>
-                                            <td>
-                                                <?php if ($taskUser['is_completed'] == 0) { ?>
-                                                    <span class="badge badge-warning">Not Completed</span>
-                                                <?php } else { ?>
-                                                    <span class="badge badge-success">Completed</span>
-                                                <?php } ?>
-                                            </td>
-                                            <td>
-                                                <form action="" method="post" class="d-inline">
-                                                    <input type="hidden" name="task_id" value="<?= $taskUser['id'] ?>">
-                                                    <input type="hidden" name="old_title" value="<?= $taskUser['title'] ?>">
-                                                    <input type="hidden" name="old_completed" value="<?= $taskUser['is_completed'] ?>">
-                                                    <button name="edit" class="btn btn-sm btn-warning">✏ Edit</button>
-                                                </form>
-                                                <form action="" method="post" class="d-inline">
-                                                    <input type="hidden" name="task_id" value="<?= $taskUser['id'] ?>">
-                                                    <button name="delete" class="btn btn-sm btn-danger">🗑 Delete</button>
-                                                </form>
-                                            </td>
+                                            <th>Name</th>
+                                            <th>Task</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
                                         </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($tasks as $taskUser) { ?>
+                                            <tr>
+                                                <td><?= $_SESSION['user']->name ?></td>
+                                                <td><?= $taskUser['title'] ?></td>
+                                                <td>
+                                                    <?php if ($taskUser['is_completed'] == 0) { ?>
+                                                        <span class="badge badge-warning">Not Completed</span>
+                                                    <?php } else { ?>
+                                                        <span class="badge badge-success">Completed</span>
+                                                    <?php } ?>
+                                                </td>
+                                                <td>
+                                                    <form action="" method="post" class="d-inline">
+                                                        <input type="hidden" name="task_id" value="<?= $taskUser['id'] ?>">
+                                                        <input type="hidden" name="old_title" value="<?= $taskUser['title'] ?>">
+                                                        <input type="hidden" name="old_completed" value="<?= $taskUser['is_completed'] ?>">
+                                                        <button name="edit" class="btn btn-sm btn-warning">✏ Edit</button>
+                                                    </form>
+                                                    <form action="" method="post" class="d-inline">
+                                                        <input type="hidden" name="task_id" value="<?= $taskUser['id'] ?>">
+                                  F                      <button name="delete" class="btn btn-sm btn-danger">🗑 Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                     <?php }
+                    } else {
+                        echo "<div class='alert alert-info'>No Tasks Yet✨</div>";
+                    }
                 }
 
                 // Delete task
