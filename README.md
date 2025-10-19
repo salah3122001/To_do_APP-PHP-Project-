@@ -2,9 +2,9 @@
   <img src="assets/todoapp.png" alt="Todo App Screenshot" width="400"/>
 </p>
 
-# 📝 Simple To-Do App (PHP & OOP)
+# 📝 Simple To-Do App (PHP Native & OOP)
 
-A simple To-Do List web application built using **PHP with Object-Oriented Programming (OOP)** — without frameworks or databases.  
+A simple To-Do List web application built using **PHP with Object-Oriented Programming (OOP)** — without frameworks.
 This project was created to practice PHP fundamentals, OOP concepts, and session-based data handling.
 
 ---
